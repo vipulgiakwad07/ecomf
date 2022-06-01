@@ -1,12 +1,12 @@
 import * as actionTypes from '../constants/productConstant';
 import axios from 'axios';
 
-const URL = ' ';
+const url = '';
 
 export const getProducts = () => async (dispatch) => {
     try {
-       
-        const { data } = await axios.get(`http://localhost:8000/products`);
+        console.log('Hiiiiii')
+        const { data } = await axios.get(`${url}/products`);
         dispatch({ type: actionTypes.GET_PRODUCTS_SUCCESS, payload: data });
 
     } catch (error) {

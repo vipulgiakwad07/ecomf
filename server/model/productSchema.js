@@ -4,7 +4,7 @@ import autoIncrement from 'mongoose-auto-increment';
 const productSchema = new mongoose.Schema({
     id: String,
     url: String,
-    detailUrl: String,
+    detailurl: String,
     title: Object,
     price: Object,
     quantity: Number,

@@ -6,7 +6,7 @@ import https from 'https';
 
 
 export const addPaymentGateway = async (request, response) => {
-    let paytmCheckSum = await paytmCheckSum.generateSignature(paytmParams, paytmMerchantkey);
+    let paytmCheckSum = await paytmchecksum.generateSignature(paytmParams, paytmMerchantkey);
     try {
         let params = {
             ...paytmParams,
@@ -31,7 +31,7 @@ export const paymentResponse = (request, response) => {
             paytmParams["MID"] = request.body.MID;
             paytmParams["ORDERID"] = request.body.ORDERID;
 
-            paytmCheckSum.generateSignature(paytmParams, 'bKMfNxPPf_QdZppa').then(function (checksum) {
+            paytmchecksum.generateSignature(paytmParams, 'bKMfNxPPf_QdZppa').then(function (checksum) {
 
                 paytmParams["CHECKSUMHASH"] = checksum;
 
@@ -57,7 +57,7 @@ export const paymentResponse = (request, response) => {
 
                     post_res.on('end', function () {
                         let result = JSON.parse(res)
-                        response.redirect(` `)
+                        response.redirect('')
                     });
                 });
                 post_req.write(post_data);
